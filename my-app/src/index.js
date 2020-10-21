@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
 //import {App,FunctionName} from './App';
-import App,{WelcomeReact} from './App';
+import {App,WelcomeReact,AnotherWelcome,Greeting} from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     <App/>
     <WelcomeReact/>
+    <AnotherWelcome/>
+    <Greeting/>
   </React.StrictMode>,
   document.getElementById('root')
 );

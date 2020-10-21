@@ -2,11 +2,11 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-//function FunctionName(){
-  // return "Please return";
-//}
+function FunctionName(){
+  return "Please return";
+}
 
-export default function App() {
+ function App() {
   return (
     <React.Fragment>
     <div className="App">
@@ -30,8 +30,18 @@ export default function App() {
 }
 //export {App,FunctionName}
 
-export function WelcomeReact(){
+ function WelcomeReact(){
   return <h1>Welcome to learn React by AP !!!!!</h1>
 }
 //export default App;
 //export default WelcomeReact;
+
+function AnotherWelcome(){
+  return <h1>We are happy to welcome you again and again</h1>
+}
+
+function Greeting(){
+  return <h1>With a Warm greeting to you Sir/madam </h1>
+}
+
+export {App,FunctionName,WelcomeReact,AnotherWelcome,Greeting}
