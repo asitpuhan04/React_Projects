@@ -2,8 +2,13 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+//function FunctionName(){
+  // return "Please return";
+//}
+
 function App() {
   return (
+    <React.Fragment>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -20,7 +25,13 @@ function App() {
         </a>
       </header>
     </div>
+    </React.Fragment>
   );
 }
+//export {App,FunctionName}
 
+//function WelcomeReact(){
+  //return <h1>Welcome to learn React by AP !!!!!</h1>
+//}
 export default App;
+//export default WelcomeReact;
