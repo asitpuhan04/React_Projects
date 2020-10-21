@@ -6,7 +6,7 @@ import './App.css';
   // return "Please return";
 //}
 
-function App() {
+export default function App() {
   return (
     <React.Fragment>
     <div className="App">
@@ -30,8 +30,8 @@ function App() {
 }
 //export {App,FunctionName}
 
-//function WelcomeReact(){
-  //return <h1>Welcome to learn React by AP !!!!!</h1>
-//}
-export default App;
+export function WelcomeReact(){
+  return <h1>Welcome to learn React by AP !!!!!</h1>
+}
+//export default App;
 //export default WelcomeReact;
