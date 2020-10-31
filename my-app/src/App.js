@@ -40,8 +40,8 @@ function AnotherWelcome(){
   return <h1>We are happy to welcome you again and again</h1>
 }
 
-function Greeting(){
-  return <h1>With a Warm greeting to you Sir/madam </h1>
+function Greeting(props){
+return <h1>With a Warm greeting to you {props.name} to the {props.value}</h1>
 }
 
 export {App,FunctionName,WelcomeReact,AnotherWelcome,Greeting}
