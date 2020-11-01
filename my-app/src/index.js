@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
+import App from './App';
 //import {App,FunctionName} from './App';
 //import {App,WelcomeReact,AnotherWelcome,Greeting} from './App';
-import Counter from './Counter/counter' ;
+//import Counter from './Counter/counter' ;
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     
-    {/*<App/>
+    {/*
     <WelcomeReact />
     <AnotherWelcome />
     <Greeting name="USAA" value="2nd session of React" />*/}
-    <Counter/>
+    {/* <Counter/> */}
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
