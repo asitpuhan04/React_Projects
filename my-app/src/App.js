@@ -15,33 +15,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: 0,
-      cosmetic: 0,
-      utensils: 0
+      totalCart: 0
     }
+    sessionStorage.setItem("TotalCartValue", 0)
   }
 
-  onProdInc = () => {
-    this.setState({ product: this.state.product + 1 });
-  }
-  onCosInc=() =>{
-    this.setState({ cosmetic: this.state.cosmetic + 1 });
-  }
-  onUtenInc = () => {
-    this.setState({ utensils: this.state.utensils + 1 });
-  }
-  onProdDec = () => {
-    this.setState({ product: this.state.product - 1 });
-  }
-  onCosDec=() =>{
-    this.setState({ cosmetic: this.state.cosmetic - 1 });
-  }
-  onUtenDec = () => {
-    this.setState({ utensils: this.state.utensils - 1 });
-  }
   calculateSum = () => {
     try {
-      return this.state.product + this.state.cosmetic + this.state.utensils;
+      //this.setState({ totalCart: sessionStorage.getItem("TotalCartValue") });
+      return 0;
     }
     catch (ex) {
       console.log(ex);
@@ -53,22 +35,11 @@ class App extends React.Component {
     console.log(error);
   }
   render() {
-    const { product, cosmetic, utensils } = this.state
     return (
       <React.Fragment>
         <h1>Your Cart Contains {this.calculateSum()}</h1>
-        <ErrorBoundary>
-          <span>Product 1</span><Counter counterVal={product} 
-          onProdInc={this.onProdInc} onProdDec={this.onProdDec} />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <span>Cosmetic 1</span><Counter counterVal={cosmetic} 
-          onProdInc={this.onCosInc} onProdDec={this.onCosDec} />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <span>Utensil 1</span><Counter counterVal={utensils} 
-          onProdInc={this.onUtenInc} onProdDec={this.onUtenDec} />
-        </ErrorBoundary>
+        <Counter />
+        <Counter />
         <ErrorBoundary><CommonError Sub="React" /></ErrorBoundary>
       </React.Fragment>
     );
@@ -80,14 +51,11 @@ class App extends React.Component {
   // }
 }
 export default App;
-// //export default WelcomeReact;
-
+// export default WelcomeReact;
 // function AnotherWelcome(){
-//   return <h1>We are happy to welcome you again and again</h1>
+// return <h1>We are happy to welcome you again and again</h1>
 // }
-
 // function Greeting(props){
 // return <h1>With a Warm greeting to you {props.name} to the {props.value}</h1>
 // }
-
-//export {App,FunctionName,WelcomeReact,AnotherWelcome,Greeting}
+// export {App,FunctionName,WelcomeReact,AnotherWelcome,Greeting}
