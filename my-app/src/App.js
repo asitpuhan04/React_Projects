@@ -24,10 +24,21 @@ class App extends React.Component {
   onProdInc = () => {
     this.setState({ product: this.state.product + 1 });
   }
+  onCosInc=() =>{
+    this.setState({ cosmetic: this.state.cosmetic + 1 });
+  }
+  onUtenInc = () => {
+    this.setState({ utensils: this.state.utensils + 1 });
+  }
   onProdDec = () => {
     this.setState({ product: this.state.product - 1 });
   }
-
+  onCosDec=() =>{
+    this.setState({ cosmetic: this.state.cosmetic - 1 });
+  }
+  onUtenDec = () => {
+    this.setState({ utensils: this.state.utensils - 1 });
+  }
   calculateSum = () => {
     try {
       return this.state.product + this.state.cosmetic + this.state.utensils;
@@ -47,10 +58,17 @@ class App extends React.Component {
       <React.Fragment>
         <h1>Your Cart Contains {this.calculateSum()}</h1>
         <ErrorBoundary>
-          <span>Product 1</span><Counter counterVal={product} onProdInc={this.onProdInc} onProdDec={this.onProdDec} />
+          <span>Product 1</span><Counter counterVal={product} 
+          onProdInc={this.onProdInc} onProdDec={this.onProdDec} />
         </ErrorBoundary>
-        <ErrorBoundary><span>Cosmetic 1</span><Counter counterVal={cosmetic} /></ErrorBoundary>
-        <ErrorBoundary><span>Utensil 1</span><Counter counterVal={utensils} /></ErrorBoundary>
+        <ErrorBoundary>
+          <span>Cosmetic 1</span><Counter counterVal={cosmetic} 
+          onProdInc={this.onCosInc} onProdDec={this.onCosDec} />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <span>Utensil 1</span><Counter counterVal={utensils} 
+          onProdInc={this.onUtenInc} onProdDec={this.onUtenDec} />
+        </ErrorBoundary>
         <ErrorBoundary><CommonError Sub="React" /></ErrorBoundary>
       </React.Fragment>
     );
