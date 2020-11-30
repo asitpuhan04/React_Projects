@@ -5,6 +5,9 @@ import Counter from './Counter/counter';
 import 'bootstrap/dist/css/bootstrap.css';
 import ErrorBoundary from './Error/ErrorBoundary';
 import CommonError from './Error/CommonError';
+import RegularComp from './Component/RegularComp.js';
+import PureComp from './Component/PureComp.js';
+import MemoComp from './Component/MemoComp';
 
 // function FunctionName(){
 //   return "Please return";
@@ -17,18 +20,26 @@ class App extends React.Component {
     this.state = {
       totalCart: 0
     }
-    sessionStorage.setItem("TotalCartValue", 0)
+    localStorage.setItem("TotalCartValue", 0)
   }
 
   calculateSum = () => {
     try {
-      //this.setState({ totalCart: sessionStorage.getItem("TotalCartValue") });
+      //this.setState({ totalCart: localStorage.getItem("TotalCartValue") });
+      localStorage.getItem("TotalCartValue");
       return 0;
     }
     catch (ex) {
       console.log(ex);
     }
+  }
 
+  componentDidMount(){
+    setInterval(()=>{
+      this.setState({
+        totalCart:10
+            });
+    },2000);
   }
 
   componentDidCatch(error, info) {
@@ -37,6 +48,9 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <RegularComp cartValue={this.state.totalCart}/>
+        <PureComp cartValue={this.state.totalCart}/>
+        <MemoComp cartValue={this.state.totalCart}/>
         <h1>Your Cart Contains {this.calculateSum()}</h1>
         <Counter />
         <Counter />
