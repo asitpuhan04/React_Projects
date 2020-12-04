@@ -6,16 +6,13 @@ import App from './App';
 //import {App,WelcomeReact,AnotherWelcome,Greeting} from './App';
 //import Counter from './Counter/counter' ;
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    
-    {/*
-    <WelcomeReact />
-    <AnotherWelcome />
-    <Greeting name="USAA" value="2nd session of React" />*/}
-    {/* <Counter/> */}
+    <BrowserRouter>
     <App/>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

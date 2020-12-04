@@ -1,17 +1,12 @@
 import React from 'react';
-//import logo from './logo.svg';
 import './App.css';
-import Counter from './Counter/counter';
 import 'bootstrap/dist/css/bootstrap.css';
-import ErrorBoundary from './Error/ErrorBoundary';
-import CommonError from './Error/CommonError';
-import RegularComp from './Component/RegularComp.js';
-import PureComp from './Component/PureComp.js';
-import MemoComp from './Component/MemoComp';
-
-// function FunctionName(){
-//   return "Please return";
-// }
+import {Route,Link} from 'react-router-dom';
+import home from './Router/home';
+import dashboard from './Router/dashboard';
+import aboutUs from './Router/aboutUs';
+import contactUs from './Router/contactUs';
+import counter from './Counter/counter';
 
 class App extends React.Component {
 
@@ -25,7 +20,6 @@ class App extends React.Component {
 
   calculateSum = () => {
     try {
-      //this.setState({ totalCart: localStorage.getItem("TotalCartValue") });
       localStorage.getItem("TotalCartValue");
       return 0;
     }
@@ -48,28 +42,21 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <RegularComp cartValue={this.state.totalCart}/>
-        <PureComp cartValue={this.state.totalCart}/>
-        <MemoComp cartValue={this.state.totalCart}/>
-        <h1>Your Cart Contains {this.calculateSum()}</h1>
-        <Counter />
-        <Counter />
-        <ErrorBoundary><CommonError Sub="React" /></ErrorBoundary>
+        <div class="App">
+        <ul>
+          <li><Link to="/Home">Home</Link></li>
+          <li><Link to="/Dashboard">Dashboard</Link></li>
+          <li><Link to="/Aboutus">About Us</Link></li>
+          <li><Link to="/ContactUs">Contact Us</Link></li>
+        </ul>
+        <Route exact path="/" component={counter} />
+        <Route path= "/Home" component={home} />
+        <Route path= "/Dashboard" component={dashboard} />
+        <Route path= "/Aboutus" component={aboutUs} />
+        <Route path= "/ContactUs" component={contactUs} />
+        </div>
       </React.Fragment>
     );
   }
-  //export {App,FunctionName}
-
-  //  function WelcomeReact(){
-  //   return <h1>Welcome to learn React by AP !!!!!</h1>
-  // }
 }
 export default App;
-// export default WelcomeReact;
-// function AnotherWelcome(){
-// return <h1>We are happy to welcome you again and again</h1>
-// }
-// function Greeting(props){
-// return <h1>With a Warm greeting to you {props.name} to the {props.value}</h1>
-// }
-// export {App,FunctionName,WelcomeReact,AnotherWelcome,Greeting}
